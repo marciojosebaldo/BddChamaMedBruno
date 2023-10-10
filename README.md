@@ -12,4 +12,6 @@ INSERT INTO cargo(nome) VALUES('Gestor(a)'), ('Médico(a)'), ('Residente'), ('En
 
 CREATE TABLE interruptor ( id SERIAL PRIMARY KEY, interruptor varchar(255) not null, estado bool default true, setor varchar(255) not null );
 
+INSERT INTO interruptor (interruptor, estado, setor) VALUES ('cama 1', true, '1'), ('cama 2', true, '2'), ('cama 3', true, '3'), ('cama 4', true, '4')
+
 CREATE TABLE registro ( id SERIAL PRIMARY KEY, acao VARCHAR(255) , nome varchar(255) , data_hora TIMESTAMP );
