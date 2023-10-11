@@ -1,5 +1,7 @@
 # BddChamaMedBruno
 
+### Apenas o teste BDD é de minha autoria ###
+
 CREATE DATABASE Chamadas
 
 CREATE TABLE usuario ( id SERIAL PRIMARY KEY, nome varchar(255) not null, matricula integer not null, cargo integer not null, senha varchar(255) not null, ativo bool default true, foreign key (cargo) references cargo(id) );
