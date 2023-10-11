@@ -1,6 +1,7 @@
 # BddChamaMedBruno
 
-### Apenas o teste BDD é de minha autoria ###
+### Apenas o teste de BDD é de minha autoria ###
+### Trabalho de Conclusão de Curso do curso Técnico em Desenvolvimento de Sistemas ### 
 
 CREATE DATABASE Chamadas
 
