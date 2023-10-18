@@ -45,6 +45,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--WebDriver do Chrome. Está sendo considerado obsoleto -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.0.3</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -66,9 +74,7 @@
 			<artifactId>cucumber-java</artifactId>
 			<version>7.14.0</version>
 		</dependency>
-
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -77,5 +83,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
