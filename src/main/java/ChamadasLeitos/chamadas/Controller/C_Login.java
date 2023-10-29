@@ -13,7 +13,7 @@ public class C_Login {
 
     @GetMapping("/")
     public String getLogin(){
-        return "/login/login";
+        return "/Login/login";
     }
 
     @PostMapping("/login")
