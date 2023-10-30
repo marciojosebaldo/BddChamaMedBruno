@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 public class visualizarTelaChamadas {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
     @Dado("que usuario acessa a tela dos chamados {string}")
     public void queUsuarioAcessaATelaDosChamados(String site) {

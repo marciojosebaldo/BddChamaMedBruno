@@ -9,32 +9,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
+import java.util.concurrent.TimeUnit;
 
 public class cadastrarInterruptor {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
     @Dado("que o usuario acessa a tela dos interruptores {string}")
     public void queOUsuarioAcessaATelaDosInterruptores(String site) {
         System.setProperty("webdriver.edge.driver", "/home/marciobaldo/Desktop/msedgedriver"); // Aponta para o executável do ChromeDriver
         driver = new EdgeDriver();
         driver.get(site);
-        driver.manage().window().maximize();
-        throw new io.cucumber.java.PendingException();
     }
 
     @Quando("o usuario clicar no botao Adicionar Interruptor")
     public void oUsuarioClicarNoBotaoAdicionarInterruptor() {
-        WebElement clicaBotao = driver.findElement(By.id("adicionarInterruptor"));
-        clicaBotao.click();
-        throw new io.cucumber.java.PendingException();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement adicionarInterruptor = driver.findElement(By.id("adicionarInterruptor"));
+        adicionarInterruptor.click();
     }
 
     @E("abrir uma nova janela {string}")
     public void abrirUmaNovaJanela(String novaJanela) {
         String siteRetorno = driver.getCurrentUrl();
         Assert.assertEquals(novaJanela, siteRetorno);
-        throw new io.cucumber.java.PendingException();
     }
 
     @Entao("o usuario preenchera o nome do interruptor com {string}, deixara o valor booleano {string} e o Setor {string}")
@@ -47,6 +45,8 @@ public class cadastrarInterruptor {
 
         WebElement nomeSetorWeb = driver.findElement(By.id("setor"));
         nomeSetorWeb.sendKeys("novoSetor");
-        throw new io.cucumber.java.PendingException();
+
+        WebElement botaoCadastrarWeb = driver.findElement(By.id("cadastrar"));
+        botaoCadastrarWeb.click();
     }
 }
