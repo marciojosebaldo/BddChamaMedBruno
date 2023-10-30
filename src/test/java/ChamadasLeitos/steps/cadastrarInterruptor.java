@@ -1,4 +1,4 @@
-package ChamadasLeitos.chamadas;
+package ChamadasLeitos.steps;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
@@ -17,7 +17,7 @@ public class cadastrarInterruptor {
 
     @Dado("que o usuario acessa a tela dos interruptores {string}")
     public void queOUsuarioAcessaATelaDosInterruptores(String site) {
-        System.setProperty("webdriver.edge.driver", "/home/marciobaldo/Desktop/msedgedriver"); // Aponta para o executável do ChromeDriver
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Desktop\\msedgedriver"); // Aponta para o executável do ChromeDriver
         driver = new EdgeDriver();
         driver.get(site);
     }

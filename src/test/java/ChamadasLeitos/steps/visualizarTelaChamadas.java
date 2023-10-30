@@ -1,4 +1,4 @@
-package ChamadasLeitos.chamadas;
+package ChamadasLeitos.steps;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
@@ -15,8 +15,8 @@ public class visualizarTelaChamadas {
 
     @Dado("que usuario acessa a tela dos chamados {string}")
     public void queUsuarioAcessaATelaDosChamados(String site) {
-        System.setProperty("webdriver.edge.driver", "/home/marciobaldo/Desktop/msedgedriver"); // Aponta para o executável do ChromeDriver
-        driver = new EdgeDriver(); // Usa o EdgeDriver. Instalada a versão Dev 120.0.2172.1
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Desktop\\msedgedriver"); // Aponta para o executável do ChromeDriver
+        driver = new EdgeDriver();
         driver.get(site);
         driver.manage().window().maximize();
     }
