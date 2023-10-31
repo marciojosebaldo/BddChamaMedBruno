@@ -31,14 +31,19 @@ public class cadastrarUsuario {
 
     @E("digitar o nome {string}, numero de matricula {string} e selecionar o cargo {string}")
     public void digitarONomeNumeroDeMatriculaESelecionarOCargo(String novoNome, String novaMatricula, String novoCargo) {
-
+        driver.findElement(By.id("nome")).sendKeys(novoNome);
+        driver.findElement(By.id("matricula")).sendKeys(novaMatricula);
+        driver.findElement(By.id("cargo")).sendKeys("Gestor");
     }
 
     @E("clica no botao Salvar Cadastro")
     public void clicaNoBotaoSalvarCadastro() {
+        driver.findElement(By.id("enviar")).click();
     }
 
     @Entao("sera salvo um novo usuario e retorna para a janela anterior {string}")
-    public void seraSalvoUmNovoUsuarioERetornaParaAJanelaAnterior(String arg0) {
+    public void seraSalvoUmNovoUsuarioERetornaParaAJanelaAnterior(String janelaRetorna) {
+        String siteRetorno = driver.getCurrentUrl();
+        Assert.assertEquals(janelaRetorna, siteRetorno);
     }
 }
