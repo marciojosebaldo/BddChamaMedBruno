@@ -1,7 +1,6 @@
 package ChamadasLeitos.steps;
 
 import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.By;
@@ -10,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 
-public class cadastrarUsuario {
+public class cadastrarUsuarioStep {
 
     public WebDriver driver;
 
@@ -31,12 +30,13 @@ public class cadastrarUsuario {
 
         WebElement campoCargo = driver.findElement(By.id("cargo"));
         campoCargo.sendKeys("Gestor");
-    }
 
-    @E("clica no botao Salvar Cadastro")
-    public void clicaNoBotaoSalvarCadastro() {
         WebElement botaoSalvar = driver.findElement(By.id("enviar"));
         botaoSalvar.click();
+
+        driver.close();
+
+        driver.get("http://localhost:8080/showUsuario");
     }
 
     @Entao("sera salvo um novo usuario e retorna para a janela anterior {string}")
