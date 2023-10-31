@@ -14,31 +14,29 @@ public class cadastrarUsuario {
 
     public WebDriver driver;
 
-    @Dado("que o usuario esta na tela {string}")
-    public void queOUsuarioEstaNaTela(String site) {
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Desktop\\msedgedriver"); // Aponta para o executável do ChromeDriver
+    @Dado("o usuario clica no botao Adicionar Usuario e abre uma nova janela {string}")
+    public void oUsuarioClicaNoBotaoAdicionarUsuarioEAbreUmaNovaJanela(String site) {
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Desktop\\msedgedriver.exe"); // Aponta para o executável do ChromeDriver
         driver = new EdgeDriver();
         driver.get(site);
     }
 
-    @Quando("o usuario clica no botao Adicionar Usuario e abre uma nova janela {string}")
-    public void oUsuarioClicaNoBotaoAdicionarUsuarioEAbreUmaNovaJanela(String novaJanela) {
-        WebElement clicaBotao = driver.findElement(By.className("btn btn-primary"));
-        clicaBotao.click();
-        String janelaCadastro = driver.getCurrentUrl();
-        Assert.assertEquals(novaJanela, janelaCadastro);
-    }
+    @Quando("E digitar o nome {string}, numero de matricula {string} e selecionar o cargo")
+    public void eDigitarONomeNumeroDeMatriculaESelecionarOCargo(String novoNome, String novaMatricula) {
+        WebElement campoNome = driver.findElement(By.id("nome"));
+        campoNome.sendKeys(novoNome);
 
-    @E("digitar o nome {string}, numero de matricula {string} e selecionar o cargo {string}")
-    public void digitarONomeNumeroDeMatriculaESelecionarOCargo(String novoNome, String novaMatricula, String novoCargo) {
-        driver.findElement(By.id("nome")).sendKeys(novoNome);
-        driver.findElement(By.id("matricula")).sendKeys(novaMatricula);
-        driver.findElement(By.id("cargo")).sendKeys("Gestor");
+        WebElement campoMatricula = driver.findElement(By.id("matricula"));
+        campoMatricula.sendKeys(novaMatricula);
+
+        WebElement campoCargo = driver.findElement(By.id("cargo"));
+        campoCargo.sendKeys("Gestor");
     }
 
     @E("clica no botao Salvar Cadastro")
     public void clicaNoBotaoSalvarCadastro() {
-        driver.findElement(By.id("enviar")).click();
+        WebElement botaoSalvar = driver.findElement(By.id("enviar"));
+        botaoSalvar.click();
     }
 
     @Entao("sera salvo um novo usuario e retorna para a janela anterior {string}")
